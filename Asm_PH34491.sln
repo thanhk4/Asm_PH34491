@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asm_Domain", "Asm_Domain\Asm_Domain.csproj", "{D885566E-9C83-45D7-989C-556A53F00B81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asm.Web", "Asm.Web\Asm.Web.csproj", "{F07F9418-BCC5-41E4-AA81-EA18649042CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D885566E-9C83-45D7-989C-556A53F00B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D885566E-9C83-45D7-989C-556A53F00B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D885566E-9C83-45D7-989C-556A53F00B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D885566E-9C83-45D7-989C-556A53F00B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07F9418-BCC5-41E4-AA81-EA18649042CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07F9418-BCC5-41E4-AA81-EA18649042CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07F9418-BCC5-41E4-AA81-EA18649042CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07F9418-BCC5-41E4-AA81-EA18649042CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04149653-4227-4517-916C-1C79527CA5E9}
+	EndGlobalSection
+EndGlobal
