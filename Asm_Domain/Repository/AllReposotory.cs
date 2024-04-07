@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Asm_Domain.Repository
 {
-    internal class AllReposotory<G> : IAllreposory<G> where G : class
+    public class AllReposotory<G> : IAllreposory<G> where G : class
     {
         SD18302_NET104Context context;
         DbSet<G> dbSet; // Tạo ra để CRUD trên DbSet vì nó đại diện cho bảng 
@@ -19,6 +19,7 @@ namespace Asm_Domain.Repository
             dbSet = dbset; // gán lại khi dùng 
             this.context = context;
         }
+      
         public bool Create(G obj) // thêm mới 
         {
             try

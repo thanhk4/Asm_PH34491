@@ -15,6 +15,10 @@ namespace app_data_class.Models
         // dbset để trỏ đến mỗi bảng 
         public DbSet<HoaDon> hoadonss { get; set; }
         public DbSet<Use> uses { get; set; }
+        public DbSet<SanPham>  SanPham { get; set; }
+        public DbSet<GioHang> GioHangs { get; set; }
+        public DbSet<ChiTietGioHang> chiTietGioHangs { get; set; }
+
         public SD18302_NET104Context(DbContextOptions<SD18302_NET104Context> options)
             : base(options)
         {

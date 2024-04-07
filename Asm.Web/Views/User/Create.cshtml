@@ -1,0 +1,72 @@
+﻿@model Asm_Domain.Model.Use
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Đăng ký</h1>
+
+<h4>Tài khoản</h4>
+<hr />
+<div class="container m-0">
+<div class="row d-flex justify-content-center bg-secondary">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label"></label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoB" class="control-label"></label>
+                <input asp-for="DoB" class="form-control" />
+                <span asp-validation-for="DoB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tạo mới" class="btn btn-primary " />
+            </div>
+        </form>
+           </div>
+    </div>
+ 
+</div>
+
+<div class="d-flex justify-content-center m-0 mb-2 p-2">
+    <a asp-action="Index" class="btn btn-dark ">Back to List</a>
+    <a asp-action="Login" class="btn btn-primary text-decoration-none p-2">Đăng nhập</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

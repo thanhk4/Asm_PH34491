@@ -1,0 +1,186 @@
+﻿@using app_data_class.Models;
+@model IEnumerable<Asm_Domain.Model.ChiTietGioHang>
+@{
+     var dbContext = new SD18302_NET104Context();
+}
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Giỏ Hàng</h1>
+
+<div class="pt-4" style="min-height: calc(100vh - 130px);">
+    <div class="container">
+
+<table class="table">
+    <thead>
+        <tr>
+           
+             <th>
+               Img
+            </th>
+              <th>
+              Don Giá  
+            </th>
+             
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+              <th>
+               Tổng tiền  
+            </th>
+           
+         
+            
+              <th>
+              Tac Vu
+            </th>
+          
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         
+             <td>
+               @{
+                    // Lấy tên sản phẩm dựa trên IdSP
+                   
+                    var anhSP = dbContext.SanPham.FirstOrDefault(sp => sp.Id == item.SanPhamID)?.ImgURL;
+                    <img src="~/img/@anhSP" alt="Ảnh Sách" style="max-width: 100px; max-height: 100px;" />
+                }
+                @anhSP
+                   @{
+                    // Lấy tên sản phẩm dựa trên IdSP
+                   
+                    var Ten = dbContext.SanPham.FirstOrDefault(sp => sp.Id == item.SanPhamID)?.Name;
+                   
+                }
+                @Ten
+            </td>
+
+            <td>
+               
+                @{
+                    // Lấy tên sản phẩm dựa trên IdSP
+                   
+                    var gia = dbContext.SanPham.FirstOrDefault(sp => sp.Id == item.SanPhamID)?.Gia;
+                   
+                }
+                @gia
+            </td>
+            
+          
+              <td>
+               
+                @using (Html.BeginForm("DataUpdateAmout", "GHCT", FormMethod.Post))
+                    {
+                        @Html.Hidden("id", item.SanPhamID) @*<!-- Thay yourI*@
+                            <div class="form-group text-center " >
+                                  
+                                    <input type="text" name="amount" value="@item.SoLuong"  class="form-control " />
+
+                                </div>
+                                  <div class="form-group">
+                                    <button type="submit"  class="btn btn-danger border-2" > Sửa số lượng </button>
+                                </div>
+
+                    }
+                   
+            </td>
+
+            
+
+             
+                   <td>
+                             @{
+        // Lấy giá của sản phẩm dựa trên IdSP
+        var sanPham = dbContext.SanPham.FirstOrDefault(sp => sp.Id == item.SanPhamID);
+        
+        // Nếu sản phẩm tồn tại, tính tổng tiền
+        if (sanPham != null)
+        {
+            decimal? giaSanPham = sanPham.Gia; // Giả sử giá sản phẩm được lưu trong trường Gia của SanPham
+            
+            if (giaSanPham.HasValue)
+            {
+                decimal tongTien = giaSanPham.Value * item.SoLuong;
+                @tongTien
+            }
+            else
+            {
+                <text>Unknown</text> <!-- Hoặc bạn có thể hiển thị một thông báo khác nếu không tìm thấy giá sản phẩm -->
+            }
+        }
+        else
+        {
+            <text>Unknown</text> <!-- Hoặc bạn có thể hiển thị một thông báo khác nếu không tìm thấy sản phẩm -->
+        }
+    }
+                </td>
+       
+         
+     
+            <td>
+              
+           <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">
+    <i class="fa fa-trash"></i> <!-- Thay "fa-trash" bằng class của biểu tượng delete mà bạn đang sử dụng -->
+</a>
+
+
+
+ 
+            </td>
+            <br>
+        </tr>
+}
+    </tbody>
+
+</table>
+<div class="btn">
+    <button class="btn btn-danger text-white">Mua Hàng</button>
+</div>
+    </div>
+   
+<footer class="d-flex justify-content-around btn btn-dark">
+    <div class>
+        <img src="https://shop-anhminh270622.vercel.app/static/media/logo.38dacfbddfcb9a848b0b.png" alt
+            width="250px">
+    </div>
+    <div class="d-flex justify-content-around p-2 text-light">
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3 ">Sản Phẩm</h3>
+            <a href>Kem Nền </a>
+            <br>
+            <a href>Phấn Mắt</a>
+            <br>
+            <a href>Son</a>
+        </div>
+
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3 text-uppercase">Cửa Hàng</h3>
+            <a href>Miền Bắc</a>
+            <br>
+            <a href>Miền Bắc</a>
+            <br>
+            <a href>Miền Bắc</a>
+        </div>
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3">Kết Nối</h3>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+        </div>
+    </div>
+</footer>
+ </div>

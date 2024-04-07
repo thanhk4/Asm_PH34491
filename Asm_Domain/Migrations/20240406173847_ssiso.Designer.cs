@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using app_data_class.Models;
 
@@ -11,9 +12,11 @@ using app_data_class.Models;
 namespace Asm_Domain.Migrations
 {
     [DbContext(typeof(SD18302_NET104Context))]
-    partial class SD18302_NET104ContextModelSnapshot : ModelSnapshot
+    [Migration("20240406173847_ssiso")]
+    partial class ssiso
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

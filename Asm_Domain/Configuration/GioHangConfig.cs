@@ -10,6 +10,7 @@ namespace Asm_Domain.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Use).WithOne(x => x.GioHang);
+            
 
         }
     }

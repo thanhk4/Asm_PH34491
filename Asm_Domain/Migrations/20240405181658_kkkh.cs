@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Asm_Domain.Migrations
 {
     /// <inheritdoc />
-    public partial class _19_3_2024 : Migration
+    public partial class kkkh : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,8 @@ namespace Asm_Domain.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Địachỉ = table.Column<string>(name: "Địa chỉ", type: "nvarchar(64)", maxLength: 64, nullable: false),
                     DoB = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -47,10 +47,11 @@ namespace Asm_Domain.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DanhMucSanPhamID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ImgURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoLuong = table.Column<int>(type: "int", precision: 5, nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)
                 },
@@ -66,7 +67,7 @@ namespace Asm_Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GioHang",
+                name: "GioHangs",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -74,9 +75,9 @@ namespace Asm_Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GioHang", x => x.Id);
+                    table.PrimaryKey("PK_GioHangs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GioHang_User_UseId",
+                        name: "FK_GioHangs_User_UseId",
                         column: x => x.UseId,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -148,7 +149,7 @@ namespace Asm_Domain.Migrations
                     table.ForeignKey(
                         name: "FK_Chitietgiohang_giohang",
                         column: x => x.GioHangID,
-                        principalTable: "GioHang",
+                        principalTable: "GioHangs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -217,8 +218,8 @@ namespace Asm_Domain.Migrations
                 column: "UseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GioHang_UseId",
-                table: "GioHang",
+                name: "IX_GioHangs_UseId",
+                table: "GioHangs",
                 column: "UseId",
                 unique: true);
 
@@ -246,7 +247,7 @@ namespace Asm_Domain.Migrations
                 name: "DanhGiaSanPham");
 
             migrationBuilder.DropTable(
-                name: "GioHang");
+                name: "GioHangs");
 
             migrationBuilder.DropTable(
                 name: "hoadonss");

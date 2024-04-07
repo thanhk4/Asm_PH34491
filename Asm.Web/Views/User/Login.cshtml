@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+     
+        <div class="pt-4" style="min-height: calc(100vh - 120px);  
+        background-image: url('	https://sneakerdaily.vn/wp-content/uploads/2022/10/nhung-doi-giay-dep-5.jpg') ">
+            <div class="container d-flex  justify-content-center ">
+                <div class="" style=" height: 450px;width: 400px; padding: 50px; background: aliceblue;border-radius: 10px;">
+                    
+                   
+
+                    <img src="	https://img.lovepik.com/free-png/20211206/lovepik-flat-male-avatar-png-image_401348783_wh1200.png" alt="" width="120" style="border-radius: 50%; display: flex; margin: auto;">
+                    <h3 class="text-center">Đăng nhập</h3>
+                    <form id="loginForm " style="background-color: aliceblue;">
+                        <label for="username" style=" margin-right: 10px;"><i class="fa-solid fa-envelope"></i></label>
+                        <input type="text" id="username" name="username" required style="border: none; outline: none; background: transparent;" placeholder="Username " >
+                  <br>
+                  <hr>
+                        <label for="password" style="margin-right: 10px;"><i class="fa-solid fa-lock"></i></label>
+                        <input type="password" id="password" name="password" required style="border: none; outline: none;background: transparent;" placeholder="Mật khẩu" >
+                  <br>
+                  <hr>
+                  <a href="Dang-ky.html" style="display: flex; justify-content: right; padding: 5px; text-decoration: none; color: black;">Đăng ký </a>
+                        <button type="button " class=" btn btn-success w-100" onclick="login()">Login</button>
+                      </form>
+                </div>
+            </div>
+           </div>
+         
+           <footer class="d-flex justify-content-around btn btn-dark">
+    <div class>
+        <img src="https://shop-anhminh270622.vercel.app/static/media/logo.38dacfbddfcb9a848b0b.png" alt
+            width="250px">
+    </div>
+    <div class="d-flex justify-content-around p-2 text-light">
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3 ">Sản Phẩm</h3>
+            <a href>Kem Nền </a>
+            <br>
+            <a href>Phấn Mắt</a>
+            <br>
+            <a href>Son</a>
+        </div>
+
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3 text-uppercase">Cửa Hàng</h3>
+            <a href>Miền Bắc</a>
+            <br>
+            <a href>Miền Bắc</a>
+            <br>
+            <a href>Miền Bắc</a>
+        </div>
+        <div class="text-uppercase">
+            <br>
+            <h3 class="p-3">Kết Nối</h3>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+            <br>
+            <a href>FACEboook</a>
+        </div>
+    </div>
+</footer>
+}

@@ -12,8 +12,8 @@ using app_data_class.Models;
 namespace Asm_Domain.Migrations
 {
     [DbContext(typeof(SD18302_NET104Context))]
-    [Migration("20240319090336_19_3_2024")]
-    partial class _19_3_2024
+    [Migration("20240405181658_kkkh")]
+    partial class kkkh
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,7 +140,7 @@ namespace Asm_Domain.Migrations
                     b.HasIndex("UseId")
                         .IsUnique();
 
-                    b.ToTable("GioHang");
+                    b.ToTable("GioHangs");
                 });
 
             modelBuilder.Entity("Asm_Domain.Model.HoaDon", b =>
@@ -183,13 +183,19 @@ namespace Asm_Domain.Migrations
                     b.Property<decimal>("Gia")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("ImgURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MoTa")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("MoTa");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("Name");
 
@@ -234,7 +240,8 @@ namespace Asm_Domain.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -242,7 +249,8 @@ namespace Asm_Domain.Migrations
 
                     b.Property<string>("username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
