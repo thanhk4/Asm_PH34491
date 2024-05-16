@@ -52,7 +52,7 @@ namespace Asm.Web.Controllers
                 var AllCart = context.chiTietGioHangs.FirstOrDefault(x => x.SanPhamID == id && x.GioHangID == cu.Id);
                 if (AllCart != null)
                 {
-                    AllCart.SoLuong = AllCart.SoLuong + amount;
+                    AllCart.SoLuong =  amount;
 
                     context.chiTietGioHangs.Update(AllCart);
                     context.SaveChanges();
