@@ -92,7 +92,7 @@ namespace Asm.Web.Controllers
                         Id = Guid.NewGuid(),
                         SanPhamID = id,
                         SoLuong = 1,
-                        GioHangID = UseID,
+                        GioHangID = UseID,  
                         TrangThai = 1
 
 
