@@ -64,14 +64,18 @@ namespace Asm.Web.Controllers
         [HttpPost]
         public IActionResult Create(Use use) 
         {
+            Guid id = Guid.NewGuid();
+            use.Id = id;
+            
             var giohang = new GioHang()
             {
-                Id = use.Id,
-                Status = 1
+                Id = id,
+                Status = 1,
+                UseId = id
             };
-
-            _context.GioHangs.Add(giohang);
             _Repo.Create(use);
+            _context.GioHangs.Add(giohang);
+            
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -132,10 +136,18 @@ namespace Asm.Web.Controllers
                 TempData["login"] = Usse.Name;
                 // Lưu trữ thông tin đăng nhập vào Seession
                 HttpContext.Session.SetString("User", Usse.Id.ToString());
+
+              
+
                 return RedirectToAction("Index", "Home");
             }
             else return Content("Thất bại");
            
+        }
+        public IActionResult Logout() 
+        { 
+        HttpContext.Session.Clear();
+            return RedirectToAction("Index","Home");
         }
     }
 }
